@@ -1,0 +1,1 @@
+This is the initial commit for my week 1 project for the Introduction to Embedded Systems Softwareand Development Environments 
