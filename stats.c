@@ -40,4 +40,44 @@ void main() {
 
 }
 
-/* Add other Implementation File Code Here */
+
+/* Print statistics: Minimum, maximum, mean and median */
+void print_statistics(unsigned char* data, unsigned int size) {
+    // TODO
+}
+
+
+/* Print all elemnts of array */
+void print_array(unsigned char* data, unsigned int size) {
+    // TODO
+}
+
+
+/* Find and return median value of array */
+unsigned char find_median(unsigned char* data, unsigned int size) {
+    // TODO
+}
+
+
+/* Find and return mean value of array */
+unsigned char find_mean(unsigned char* data, unsigned int size) {
+    // TODO
+}
+
+
+/* Find and return maximum value of array */
+int find_maximum(unsigned char* data, unsigned int size) {
+    // TODO
+}
+
+
+/* Find and return minimum value of array */
+int find_minimum(unsigned char* data, unsigned int size) {
+    // TODO
+}
+
+
+/* Sort array from largest to smallest */
+void sort_array(unsigned char* data, unsigned int size) {
+    // TODO
+}
