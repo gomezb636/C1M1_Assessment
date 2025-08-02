@@ -35,49 +35,127 @@ void main() {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+  printf("Original Array:\n");
+  print_array(test, SIZE);
+
+  // Sort test array 
+  sort_array(test, SIZE);
+  print_array(test, SIZE);
+
+  print_statistics(test, SIZE);
 
 }
 
 
 /* Print statistics: Minimum, maximum, mean and median */
 void print_statistics(unsigned char* data, unsigned int size) {
-    // TODO
+  unsigned char min_val = find_minimum(data, size);
+  unsigned char max_val = find_maximum(data, size);
+  unsigned char mean = find_mean(data, size);
+  unsigned char median = find_median(data, size);
+
+  printf("Statistics:\n");
+  printf("Minimum: %u", min_val);
+  printf("\nMaximum: %u", max_val);
+  printf("\nMean: %u", mean);
+  printf("\nMedian: %u", median);
 }
 
 
 /* Print all elemnts of array */
 void print_array(unsigned char* data, unsigned int size) {
-    // TODO
+  printf("test array: [");
+    for (unsigned int i = 0; i < size; i++) {
+      if (i == size-1) {
+        printf("%u", data[i]);
+      }
+      else {
+        printf("%u,", data[i]);
+      }
+    }
+
+    printf("]\n");
 }
 
 
 /* Find and return median value of array */
 unsigned char find_median(unsigned char* data, unsigned int size) {
-    // TODO
+  unsigned char median;
+  // copy array data into temp array so we don't modify orignal array
+  unsigned char temp[size];
+  for (unsigned int i = 0; i < size; i++) {
+    temp[i] = data[i];
+  }
+
+  // sort temp array
+  sort_array(temp, size);
+
+  // if size is even, take the average of the two middle elements
+  if (size %2 == 0) {
+    median = (temp[(size / 2) - 1] + temp[size / 2]) / 2;
+  }
+  else {
+    median = temp[size / 2];
+  }
+
+  return median;
 }
 
 
 /* Find and return mean value of array */
 unsigned char find_mean(unsigned char* data, unsigned int size) {
-    // TODO
+  unsigned int sum = 0;
+
+  for (unsigned int i = 0; i < size; i++) {
+    sum+= data[i];
+  }
+  
+  unsigned char mean = sum / size;
+  
+  return mean;
 }
 
 
 /* Find and return maximum value of array */
-int find_maximum(unsigned char* data, unsigned int size) {
-    // TODO
+unsigned char find_maximum(unsigned char* data, unsigned int size) {
+  // start with assigning max to first element in array
+    unsigned char max = data[0];
+    
+    for (unsigned int i = 1; i < size; i++) {
+      if (data[i] > max) {
+        max = data[i];
+      }
+    }
+
+    return max;
 }
 
 
 /* Find and return minimum value of array */
-int find_minimum(unsigned char* data, unsigned int size) {
-    // TODO
+unsigned char find_minimum(unsigned char* data, unsigned int size) {
+    // start with assingning min to first element in array
+    unsigned char min = data[0];
+
+    for (unsigned int i = 1; i < size; i++) {
+      if (data[i] < min) {
+        min = data[i];
+      }
+    }
+
+    return min;
 }
 
 
 /* Sort array from largest to smallest */
 void sort_array(unsigned char* data, unsigned int size) {
-    // TODO
+    for (unsigned int i = 0; i < size - 1; i++) {
+      for (unsigned int j = 0; j < i + 1; j++) {
+        if (data[i] < data[j]) {
+          // store in temp variable
+          unsigned char temp = data[i];
+          data[i] = data[j];
+          data[j] = temp;
+        }
+      }
+    }
 }

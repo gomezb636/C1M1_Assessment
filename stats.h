@@ -92,7 +92,7 @@ unsigned char find_mean(unsigned char* data, unsigned int size);
  *
  * @return The maximum value as an unsigned char
  */
-int find_maximum(unsigned char* data, unsigned int size);
+unsigned char find_maximum(unsigned char* data, unsigned int size);
 
 
 /**
@@ -106,7 +106,7 @@ int find_maximum(unsigned char* data, unsigned int size);
  *
  * @return The minimum value as an unsigned char
  */
-int find_minimum(unsigned char* data, unsigned int size);
+unsigned char find_minimum(unsigned char* data, unsigned int size);
 
 
  /**
